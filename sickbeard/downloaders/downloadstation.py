@@ -67,7 +67,7 @@ class DownloadStationAPI(object):
 			response = json.loads(open_request.read())
 			logger.log('response: ' + str(json.dumps(response).encode('utf-8')), logger.DEBUG)
 			if response['success'] == False:
-				logger.log(u"Request Error: " + response['error']['code'], logger.DEBUG)
+				logger.log(u"Request Error: " + str(response['error']['code']), logger.DEBUG)
 				return False
 			else:
 				return True if not 'data' in response else response['data']
